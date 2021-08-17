@@ -1,0 +1,141 @@
+
+{% set fashionSections
+= [ { title: "Womens fashion", images: ["../images/womens-fashion1.png",
+"../images/womens-fashion2.png", "../images/womens-fashion3.png",
+"../images/womens-fashion4.png"] }, { title: "Mens fashion", images:
+["../images/mens-fashion1.png", "../images/mens-fashion2.png",
+"../images/mens-fashion3.png", "../images/mens-fashion4.png"] } ] %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion Landing Page</title>
+  </head>
+  <body>
+    {% include "header.njk" %}
+    <div class="categories container">
+      <div class="categories__small-previews">
+        <img
+          class="categories__small-horizontal-preview"
+          src="../images/horizontal-preview.png"
+          alt="small-preview"
+        />
+        <div class="categories__square-previews">
+          <img
+            class="categories__one-square-preview"
+            src="../images/small-preview1.png"
+            alt="small-preview"
+          />
+          <img
+            class="categories__one-square-preview"
+            src="../images/small-preview2.png"
+            alt="small-preview"
+          />
+        </div>
+      </div>
+      <div class="categories__main-preview">
+        <img
+          class="categories__main-preview-image"
+          src="../images/givenchy.png"
+          alt="main-preview"
+        />
+        <a class="categories__button button" href="#">Category Name</a>
+      </div>
+    </div>
+
+    <div class="gender-fashion">
+      {% for item in fashionSections %}
+      <div class="gender-fashion__title-wrapper section-title-wrapper">
+        <h4 class="section-title-wrapper__title section-title">
+          {{ item.title }}
+        </h4>
+        <h5 class="section-title-wrapper__subtitle section-subtitle">
+          Shop our new arrivals from established brands
+        </h5>
+      </div>
+      <div class="container">
+        <div class="gender-fashion__card-row">
+          {% for img in item.images %}
+          <div class="gender-fashion__card">
+            <img
+              class="gender-fashion__card-image"
+              src="{{ img }}"
+              alt="gender-fashion"
+            />
+            <p class="gender-fashion__card-title">Igure</p>
+            <p class="gender-fashion__card-product-name">
+              Green muscle fit polo shirt
+            </p>
+            <div class="gender-fashion__price-wrapper">
+              <del class="gender-fashion__old-price" data-currency="$">
+                229.00
+              </del>
+
+              <p class="gender-fashion__current-price" data-currency="$">129</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="container">
+      <div class="avone-styles">
+        <div class="avone-styles__title-wrapper section-title-wrapper">
+          <h4 class="section-title-wrapper__title section-title">
+            Avone Styles
+          </h4>
+          <h5 class="section-title-wrapper__subtitle section-subtitle">
+            Choose Your Favorite Color
+          </h5>
+        </div>
+        <div class="avone-styles__inner">
+          <div class="avone-styles__part">
+            <div class="avone-styles__left-img-wrapper">
+              <img
+                class="avone-styles__left-img"
+                src="../images/avone-styles-left-girl.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="avone-styles__part">
+            <img
+              class="avone-styles__right-first-image"
+              src="../images/small-preview2.png"
+              alt="avone-styles"
+            />
+            <div class="avone-styles__right-second-image-inner">
+              <div class="avone-styles__link-block">
+                <a class="avone-styles__link" href="">Show women's dress</a>
+              </div>
+              <img
+                class="avone-styles__right-second-image"
+                src="../images/womens-fashion1.png"
+                alt="avone-styles"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner">
+      <div class="container">
+        <div class="banner__content-inner">
+          <h3 class="banner__content-tagline tagline">Own the day</h3>
+          <h2 class="banner__content-title title">Tachen 19</h2>
+          <div class="banner__buttons">
+            <a class="banner__button button" href="#">Shop Collection</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% include "footer.njk" %}
+    
+  </body>
+</html>
