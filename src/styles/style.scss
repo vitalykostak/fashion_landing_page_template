@@ -11,15 +11,67 @@ html {
   font-weight: 400;
   color: $mainColor;
   background-color: $backgroundPage;
+
+  @media (max-width: 992px) {
+    font-size: 12px;
+  }
 }
 
 .container {
   width: 71%;
   height: inherit;
   margin: 0 auto;
+
+  @media (max-width: 1300px) {
+    width: 80%;
+  }
+  @media (max-width: 1150px) {
+    width: 90%;
+  }
+}
+
+.burger-icon {
+  display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+  @media (max-width: 992px) {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 3rem;
+    height: 2.5rem;
+    transition: 200ms;
+    left: 0;
+  }
+
+  @media (max-width: 500px) {
+    width: 2.5rem;
+    height: 2rem;
+  }
+
+  &__part {
+    height: 15%;
+    background-color: $mainColor;
+  }
+
+  &--close {
+    font-size: 4rem;
+    left: 30%;
+    @media (max-width: 768px) {
+      left: 60%;
+    }
+    @media (max-width: 500px) {
+      font-size: 3rem;
+    }
+  }
 }
 
 .header {
+  position: relative;
   &__nav-line {
     display: flex;
     justify-content: space-between;
@@ -28,12 +80,56 @@ html {
     padding: 1.9rem 0;
   }
 
+  &__nav-links {
+    @media (max-width: 992px) {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 40%;
+      height: 100vh;
+
+      background-color: $backgroundPage;
+      transform: translate(-100%);
+      transition: 200ms;
+
+      animation: 200ms forwards unVisible;
+
+      @keyframes unVisible {
+        100% {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      width: 70%;
+    }
+
+    &--open {
+      z-index: 10;
+
+      @media (max-width: 992px) {
+        // display: block;
+        visibility: visible;
+        transform: translate(0);
+      }
+    }
+  }
   &__nav-links-inner {
     display: flex;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      padding: 2rem 0;
+    }
   }
 
   &__nav-link-item {
     padding: 0 1.5rem;
+    @media (max-width: 992px) {
+      padding: 1.8rem 0 1.8rem 2rem;
+    }
   }
 
   &__nav-link {
@@ -42,6 +138,13 @@ html {
     color: inherit;
     text-transform: uppercase;
     text-decoration: none;
+
+    @media (max-width: 992px) {
+      font-size: 2.5rem;
+    }
+    @media (max-width: 500px) {
+      font-size: 2rem;
+    }
   }
 
   &__personal-area {
@@ -53,6 +156,14 @@ html {
     height: 74.5rem;
     background-image: url('../images/headerBG.png');
     background-size: 100% 100%;
+
+    @media (max-width: 992px) {
+      height: 55rem;
+    }
+
+    @media (max-width: 768px) {
+      height: 30rem;
+    }
   }
 
   &__content-wrapper {
@@ -60,6 +171,10 @@ html {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    @media (max-width: 992px) {
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__content-inner {
@@ -67,19 +182,45 @@ html {
     flex-direction: column;
     width: min-content;
     margin-bottom: 10rem;
+
+    @media (max-width: 992px) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      width: auto;
+    }
   }
 
   &__content-subtitle {
     font-size: 1.8rem;
+    @media (max-width: 500px) {
+      font-size: 1.4rem;
+    }
   }
 
   &__buttons {
     margin-top: 2rem;
     display: flex;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  &__button {
+    @media (max-width: 768px) {
+      width: 50%;
+    }
+    @media (max-width: 500px) {
+      width: 50%;
+    }
   }
 
   &__button:first-child {
     margin-right: 3rem;
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -88,12 +229,21 @@ html {
   height: 57.4rem;
   display: flex;
 
+  @media (max-width: 768px) {
+    margin-top: 3rem;
+    flex-direction: column;
+    height: auto;
+  }
+
   &__small-previews {
     flex-grow: 1;
     margin-right: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      margin-right: 0;
+    }
   }
 
   &__small-horizontal-preview {
@@ -108,10 +258,16 @@ html {
   }
 
   &__one-square-preview {
-    width: 47.5%;
+    width: 48.5%;
+    @media (max-width: 768px) {
+      width: 49.8%;
+    }
 
     &:first-child {
       margin-right: 2.56rem;
+      @media (max-width: 768px) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -119,6 +275,13 @@ html {
     position: relative;
     flex-grow: 1;
     margin-left: 1.5rem;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+      flex-grow: initial;
+      height: 40rem;
+      margin-top: 0.3rem;
+    }
     &:after {
       content: '';
       position: absolute;
@@ -150,17 +313,27 @@ html {
 .gender-fashion {
   &__title-wrapper {
     margin-top: 11.3rem;
+    @media (max-width: 768px) {
+      margin-top: 7.3rem;
+    }
   }
 
   &__card-row {
     margin-top: 7.2rem;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+    }
   }
 
   &__card {
     width: 23.5%;
     text-transform: uppercase;
+    @media (max-width: 768px) {
+      width: 49%;
+      margin-top: 1.5rem;
+    }
   }
   &__card-image {
     width: 100%;
@@ -170,12 +343,20 @@ html {
     margin-top: 3.8rem;
     font-weight: 300;
     font-size: 1.5rem;
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
   }
 
   &__card-product-name {
     margin-top: 0.3rem;
     font-weight: 600;
     font-size: 1.5rem;
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
   }
 
   &__price-wrapper {
@@ -204,16 +385,32 @@ html {
   &__title-wrapper {
     margin-top: 10.3rem;
     margin-bottom: 7.2rem;
+    @media (max-width: 768px) {
+      margin-top: 7.3rem;
+      margin-bottom: 3.2rem;
+    }
   }
   &__inner {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__part {
     display: flex;
     flex-direction: column;
     width: 48.7%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    &:first-child {
+      @media (max-width: 768px) {
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   &__left-img-wrapper {
@@ -227,12 +424,18 @@ html {
     width: 100%;
     height: 100%;
     margin-top: 10.7rem;
+    @media (max-width: 768px) {
+      margin-top: 7.2rem;
+    }
   }
 
   &__right-first-image {
     width: 93.1%;
     height: 45.1rem;
     flex-grow: 1;
+    @media (max-width: 768px) {
+      height: 30rem;
+    }
   }
 
   &__right-second-image-inner {
@@ -256,6 +459,9 @@ html {
     color: inherit;
     text-transform: uppercase;
     text-decoration: none;
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
 
     &:after {
       content: '';
@@ -272,6 +478,11 @@ html {
     border-bottom: none;
     width: 25.2rem;
     height: 32.3rem;
+
+    @media (max-width: 768px) {
+      width: 18.2rem;
+      height: 20.3rem;
+    }
   }
 }
 
@@ -282,10 +493,23 @@ html {
   background-image: url('../images/banner.png');
   background-size: 100% 100%;
 
+  @media (max-width: 768px) {
+    height: 30rem;
+    margin-top: 7.3rem;
+  }
+
   &__content-inner {
     width: fit-content;
     position: absolute;
     bottom: 15.5rem;
+    @media (max-width: 768px) {
+      width: fit-content;
+      position: relative;
+      bottom: 0;
+      top: 35%;
+
+      margin: 0 auto;
+    }
   }
 
   &__buttons {
@@ -300,24 +524,38 @@ html {
   &__parts-wrapper {
     display: flex;
     margin-bottom: 10.6rem;
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      margin-bottom: 5rem;
+    }
   }
   &__part {
     margin-top: 8.5rem;
     width: 50%;
     display: flex;
     flex-direction: column;
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-top: 5rem;
+    }
   }
 
   &__title {
     font-weight: 700;
     font-size: 2.8rem;
     text-transform: uppercase;
+    @media (max-width: 768px) {
+      font-size: 2.1rem;
+    }
   }
   &__about-us {
     margin-top: 1.7rem;
     width: 80%;
     line-height: 2.25rem;
     letter-spacing: 0.1rem;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   &__location-wrapper {
@@ -378,6 +616,9 @@ html {
     font-size: 2rem;
     font-weight: 700;
     text-transform: uppercase;
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 
   &__link-item {
@@ -385,6 +626,9 @@ html {
     text-decoration: none;
     margin-top: 2.5rem;
     color: inherit;
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+    }
   }
 
   &__copyright {
@@ -400,16 +644,33 @@ html {
   font-weight: 700;
   font-size: 2.8rem;
   text-transform: uppercase;
+  @media (max-width: 500px) {
+    display: none;
+  }
 }
 
 .tagline {
   font-size: 1.8rem;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 }
 .title {
   font-size: 8rem;
   font-weight: 700;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 6rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+  }
 }
 
 .button {
@@ -420,6 +681,9 @@ html {
   font-weight: 700;
   background-color: $mainColor;
   text-decoration: none;
+  @media (max-width: 500px) {
+    font-size: 1.4rem;
+  }
 }
 
 .section-title {
@@ -438,5 +702,8 @@ html {
 
   &__title {
     margin-bottom: 1.5rem;
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 }

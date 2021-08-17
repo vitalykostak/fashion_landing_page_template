@@ -2,14 +2,19 @@
   "name": "fashion_landing_page_template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
+  "homepage": "https://vitalykostak.github.io/fashion_landing_page_template/",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack server --mode development --open"
+    "start": "webpack server --mode development --open",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "Vitaly Kostak <vitalykostak@gmail.com>",
   "license": "ISC",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  },
   "devDependencies": {
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",

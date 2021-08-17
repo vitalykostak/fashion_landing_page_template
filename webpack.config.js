@@ -10,9 +10,10 @@ module.exports = {
     open: true,
     contentBase: path.resolve(__dirname, 'dist/pages'),
   },
-  entry: './index.js',
+  entry: './js/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    filename: './js/index.js',
   },
   plugins: [
     new HTMLWebpackPlugin({
